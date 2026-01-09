@@ -11,6 +11,26 @@ ZMK Studio est maintenant **activé** dans `lily58.conf` :
 CONFIG_ZMK_STUDIO=y
 ```
 
+## 🔓 Déverrouillage de ZMK Studio
+
+Pour des raisons de sécurité, ZMK Studio nécessite un **déverrouillage** avant utilisation.
+
+### Comment déverrouiller :
+
+**Appuyez simultanément sur : LWR (pouce gauche externe) + RSHFT (pouce droit externe)**
+
+```
+Pouces gauches :  [LWR] | GUI | RCTRL
+                   ^^^^
+                  Appuyez ici
+
+Pouces droits :   SPACE | ENTER | [RSHFT]
+                                   ^^^^^^
+                              Et appuyez ici
+```
+
+**En même temps pendant 1 seconde** → ZMK Studio sera déverrouillé ! ✅
+
 ## 🚀 Comment utiliser ZMK Studio
 
 ### Étape 1 : Compiler avec ZMK Studio activé
