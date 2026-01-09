@@ -19,8 +19,8 @@ Cette configuration a été ajustée manuellement et correspond parfaitement à 
 ├─────┼─────┼─────┼─────┼─────┼─────┤
 │CTRL │  Z  │  X  │  C  │  V  │  B  │
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┐
-                   │ LWR │ GUI │RCTRL│  /  │
-                   └─────┴─────┴─────┴─────┘
+                  │ LWR │ GUI │RCTRL│  /  │
+                  └─────┴─────┴─────┴─────┘
 ```
 
 **Côté droit :**
@@ -32,10 +32,10 @@ Cette configuration a été ajustée manuellement et correspond parfaitement à 
        ├─────┼─────┼─────┼─────┼─────┼─────┤
        │  H  │  J  │  K  │  L  │  ö  │  ä  │
        ├─────┼─────┼─────┼─────┼─────┼─────┤
-       │  N  │  M  │  ,  │  .  │  /  │LGUI │
-   ┌─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-   │RALT │SPACE│ENTER│RSHFT│
-   └─────┴─────┴─────┴─────┘
+       │  N  │  M  │  ,  │  .  │  /  │  $  │
+ ┌─────┼─────┼─────┼─────┼─────┴─────┴─────┘
+ │RALT │SPACE│ENTER│RSHFT│
+ └─────┴─────┴─────┴─────┘
 ```
 
 ### Layer 1 (Lower) - Pavé numérique + Navigation
@@ -68,79 +68,154 @@ Cette configuration a été ajustée manuellement et correspond parfaitement à 
 
 ### Layer 2 (Bluetooth) - Gestion des profils
 
-**Rangée du haut gauche :**
-- BT CLR : Effacer tous les appairages
-- BT 1-5 : Sélectionner profils Bluetooth 1 à 5
+```
+  ╭────────┬──────┬──────┬──────┬──────┬──────╮ 
+  │BT CLR  │ BT 1 │ BT 2 │ BT 3 │ BT 4 │ BT 5 │ 
+  ├────────┼──────┼──────┼──────┼──────┼──────┤ 
+  │  TRANS │TRANS │TRANS │TRANS │TRANS │TRANS │ 
+  ├────────┼──────┼──────┼──────┼──────┼──────┤ 
+  │  TRANS │TRANS │TRANS │TRANS │TRANS │TRANS │
+  ├────────┼──────┼──────┼──────┼──────┼──────┤
+  │  TRANS │TRANS │TRANS │TRANS │TRANS │TRANS │ 
+  └────────┴──────┴──────┴──────┴──────┴──────┘
+```
 
-Toutes les autres touches sont transparentes (passthrough).
+**Légende :**
+- **BT CLR** : Efface tous les appairages Bluetooth
+- **BT 1-5** : Sélectionne le profil Bluetooth (1 à 5)
+- **TRANS** : Touche transparente (passe au layer inférieur)
+
+Toutes les autres touches sont transparentes.
 
 ## 🎯 Accès aux layers
 
-### Layer 1 (Pavé numérique + Navigation)
-**Maintenez LWR** (1er pouce gauche)
+### Layer 1 (Lower) - Pavé numérique + Navigation
+**Maintenez la touche LWR** (1ère touche de pouce gauche)
 
 ### Layer 2 (Bluetooth)
-**Combo : SPACE + ENTER ensemble** (pouces droits 2 et 3)
+**Combo : SPACE + ENTER** (touches de pouce droites : positions 40 + 41)
+- Appuyez simultanément sur SPACE et ENTER pour accéder temporairement au layer Bluetooth
 
 ## 🔓 ZMK Studio
 
-### ⚠️ Actuellement désactivé
+### Déverrouillage
+**Combo Studio : LWR + SPACE** (positions 39 + 40)
+- Appuyez simultanément sur LWR (gauche) et SPACE (droite) pour déverrouiller ZMK Studio
 
-ZMK Studio n'est **pas disponible** dans votre version actuelle de ZMK. Cette fonctionnalité sera activable quand vous mettrez à jour vers ZMK 3.6+.
+### Configuration ZMK Studio
+- **Activé** dans `lily58.conf` avec `CONFIG_ZMK_STUDIO=y`
+- **Locking désactivé** : `CONFIG_ZMK_STUDIO_LOCKING=n`
+- **Support USB-UART** activé via `build.yaml` pour le côté gauche
 
-**En attendant** : Modifiez le keymap dans votre repo GitHub, recompilez avec Actions, et flashez normalement.
+**Note :** ZMK Studio nécessite une version récente de ZMK (3.6+). Consultez les fichiers `NOTE_ZMK_STUDIO.md` et `GUIDE_ZMK_STUDIO.md` pour plus de détails.
 
-Consultez `NOTE_ZMK_STUDIO.md` pour plus d'infos sur comment l'activer plus tard.
+## 📝 Caractéristiques principales
 
-## 📝 Caractéristiques
-
-- ✅ **Layout QWERTZ Suisse** (Z et Y inversés)
-- ✅ **58 touches** (Lily58 complet avec 4 pouces par côté)
-- ✅ **Pavé numérique** intégré sur Layer 1
-- ✅ **5 profils Bluetooth** disponibles
-- ✅ **SuperMini nRF52840** compatible Nice!Nano v2
-- ⏳ **ZMK Studio** (désactivé, disponible avec ZMK 3.6+)
+- ✅ **Layout QWERTZ Suisse** avec caractères spéciaux (ü, ö, ä, $)
+- ✅ **58 touches** (Lily58 complet : 4 touches de pouce par côté)
+- ✅ **Pavé numérique** complet sur Layer 1 (gauche)
+- ✅ **Navigation complète** sur Layer 1 (droite)
+- ✅ **12 touches de fonction** (F1-F12) réparties sur Layer 1
+- ✅ **5 profils Bluetooth** pour connexion multi-appareils
+- ✅ **ZMK Studio** support activé
+- ✅ **Combos** pour accès rapide aux layers
+- ✅ **Nice!Nano v2** / SuperMini nRF52840 compatible
+- ✅ **Mode veille** activé (`CONFIG_ZMK_SLEEP=y`)
 
 ## 🚀 Installation
 
-1. **Uploadez** `config/lily58.keymap` et `config/lily58.conf` dans votre repo GitHub
-2. **GitHub Actions** compile automatiquement (5-10 min)
-3. **Téléchargez** les firmwares :
-   - `lily58_left-nice_nano_v2-zmk.uf2`
-   - `lily58_right-nice_nano_v2-zmk.uf2`
-4. **Flashez** les deux côtés en mode bootloader (double-clic RESET)
+### 1. Compilation automatique (GitHub Actions)
+
+1. **Commit** vos modifications dans `config/lily58.keymap` ou `config/lily58.conf`
+2. **Push** vers votre repo GitHub : https://github.com/xiff/zmk-lilly
+3. **GitHub Actions** compile automatiquement (5-10 minutes)
+4. **Téléchargez** les firmwares depuis l'onglet "Actions" :
+   - `lily58_left-nice_nano_v2-zmk.uf2` (côté gauche avec ZMK Studio)
+   - `lily58_right-nice_nano_v2-zmk.uf2` (côté droit)
+
+### 2. Flash du firmware
+
+1. **Débranchez** le clavier
+2. **Côté gauche** :
+   - Double-cliquez sur le bouton **RESET**
+   - Le clavier apparaît comme lecteur USB
+   - Copiez `lily58_left-nice_nano_v2-zmk.uf2` dans le lecteur
+   - Le clavier redémarre automatiquement
+3. **Répétez** pour le côté droit avec `lily58_right-nice_nano_v2-zmk.uf2`
+
+### 3. Appairage Bluetooth
+
+1. **Activez** le Bluetooth sur votre appareil
+2. **Recherchez** "Lily58" dans les périphériques disponibles
+3. **Connectez-vous** (le côté gauche gère la connexion)
+4. **Profils** : Utilisez Layer 2 pour basculer entre 5 appareils
 
 ## ⚙️ Configuration système
 
-Pour que les caractères spéciaux suisses (ü, ö, ä) s'affichent correctement :
-- Configurez votre système d'exploitation en **Suisse (Français)** ou **Suisse (Allemand)**
-- Layout clavier : **Swiss QWERTZ**
+Pour un affichage correct des caractères suisses (ü, ö, ä, $) :
+
+- **Windows** : Paramètres → Heure et langue → Langue → Français (Suisse) ou Allemand (Suisse)
+- **macOS** : Préférences Système → Clavier → Sources d'entrée → Suisse (Français/Allemand)
+- **Linux** : `setxkbmap ch` ou configuration dans les paramètres système
+
+**Important** : Le keymap ZMK envoie des scancodes US, qui sont ensuite interprétés par votre OS configuré en Swiss QWERTZ.
 
 ## 🔧 Personnalisation
 
-Pour modifier le keymap :
-1. Éditez `config/lily58.keymap` dans votre repo
-2. Ou utilisez ZMK Studio en temps réel (modifications temporaires)
-3. Recompilez avec GitHub Actions
+### Modifier le keymap
+
+1. **Éditez** `config/lily58.keymap` dans votre repo
+2. **Consultez** la documentation ZMK : https://zmk.dev/docs/codes
+3. **Testez** avec ZMK Studio (modifications temporaires en temps réel)
+4. **Recompilez** via GitHub Actions
 
 ### Keycodes utiles
-- Documentation complète : https://zmk.dev/docs/codes
-- Behaviors ZMK : https://zmk.dev/docs/behaviors
+
+| Type | Exemples |
+|------|----------|
+| **Lettres** | `&kp A` ... `&kp Z` |
+| **Chiffres** | `&kp N1` ... `&kp N0` |
+| **Modificateurs** | `&kp LSHIFT`, `&kp LCTRL`, `&kp LGUI`, `&kp LALT` |
+| **Navigation** | `&kp UP`, `&kp DOWN`, `&kp LEFT`, `&kp RIGHT` |
+| **Page** | `&kp PG_UP`, `&kp PG_DN`, `&kp HOME`, `&kp END` |
+| **Fonction** | `&kp F1` ... `&kp F12` |
+| **Pavé num.** | `&kp KP_N0` ... `&kp KP_N9`, `&kp KP_PLUS`, etc. |
+| **Layers** | `&mo 1` (momentary), `&to 1` (toggle) |
+| **Bluetooth** | `&bt BT_CLR`, `&bt BT_SEL 0` |
+
+Documentation complète : https://zmk.dev/docs/codes
 
 ## 📚 Ressources
 
-- **Votre repo GitHub** : https://github.com/xiff/zmk-lilly
+- **Repo GitHub** : https://github.com/xiff/zmk-lilly
 - **ZMK Studio** : https://zmk.studio
 - **Documentation ZMK** : https://zmk.dev/docs
-- **Support ZMK** : https://zmk.dev/community/discord/invite
+- **Behaviors ZMK** : https://zmk.dev/docs/behaviors
+- **Keycodes ZMK** : https://zmk.dev/docs/codes
+- **Discord ZMK** : https://zmk.dev/community/discord/invite
 
-## 💡 Conseils
+## 💡 Conseils d'utilisation
 
-- **Bluetooth** : Vous pouvez connecter le clavier à 5 appareils différents
-- **Économie d'énergie** : Le clavier se met en veille après 15 minutes
-- **Batterie** : Les switches ON/OFF permettent de couper complètement l'alimentation
-- **ZMK Studio** : Idéal pour tester des modifications sans recompiler
+### Bluetooth
+- **5 profils** disponibles : connectez jusqu'à 5 appareils différents
+- **Basculement** : Utilisez le combo SPACE+ENTER pour accéder au Layer 2, puis BT 1-5
+- **Reset** : BT CLR efface tous les appairages (utile en cas de problème)
+
+### Économie d'énergie
+- **Veille automatique** : Activé après inactivité (`CONFIG_ZMK_SLEEP=y`)
+- **Switches ON/OFF** : Coupez complètement l'alimentation quand non utilisé
+- **Batterie** : Autonomie de plusieurs semaines selon utilisation
+
+### ZMK Studio
+- **Configuration en temps réel** : Modifiez le keymap sans recompiler
+- **Déverrouillage** : Combo LWR + SPACE
+- **Modifications temporaires** : Les changements ne persistent pas après redémarrage (sauvegardez dans le repo pour les garder)
+
+### Pavé numérique
+- **Accès** : Maintenez LWR (1ère touche de pouce gauche)
+- **NumLock** : Active/désactive le pavé numérique
+- **Layout** : Disposition classique 4×3 avec 0 en bas à gauche
 
 ---
 
-**Profitez de votre Silakka54 ! ⌨️🎮🇨🇭**
+**Profitez de votre Lily58 ! ⌨️🇨🇭**
