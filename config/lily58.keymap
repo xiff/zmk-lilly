@@ -9,38 +9,47 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_bt_layer {
+            timeout-ms = <50>;
+            key-positions = <40 41>; // SPACE + ENTER ensemble
+            bindings = <&mo 2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   '   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Z   |  U    |  I    |  O   |   P   |   ü   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ö   |   ä   |
-// | SHIFT |  Y  |  X  |  C   |  V   |  B   |                   |  N   |  M    |  ,    |  .   |   -   | SHIFT |
-//                     | GUI  | LWR  | SPC  |                   | ENT  | RCTRL | BSPC  |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   -   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   ü   |
+// | SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ö   |   ä   |
+// | CTRL  |  Z  |  X  |  C   |  V   |  B   |                   |  N   |  M    |  ,    |  .   |   /   | RALT  |
+//                     | LWR  | GUI  | FSLH |                   | SPACE| RET   | RCTRL |
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6   &kp N7    &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y    &kp U     &kp I     &kp O   &kp P    &kp LBKT
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H    &kp J     &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B                      &kp N    &kp M     &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LGUI &mo 1    &kp SPACE                  &kp RET  &kp RCTRL &kp BSPC
+&kp ESC   &kp N1 &kp N2    &kp N3    &kp N4  &kp N5                     &kp N6    &kp N7    &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB   &kp Q  &kp W     &kp E     &kp R   &kp T                      &kp Y     &kp U     &kp I     &kp O   &kp P    &kp LBKT
+&kp LSHFT &kp A  &kp S     &kp D     &kp F   &kp G                      &kp H     &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+&kp LCTRL &kp Z  &kp X     &kp C     &kp V   &kp B                      &kp N     &kp M     &kp COMMA &kp DOT &kp RALT &kp BSPC
+                           &mo 1     &kp LGUI &kp RCTRL                 &kp SPACE &kp RET   &kp RSHFT
             >;
         };
 
         lower_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |   `   |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | PGUP |  UP   | PGDN  | END  |  DEL  |  F12  |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | LEFT | DOWN  | RIGHT | HOME |   [   |   ]   |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
-//                        | TRANS | TRANS | TRANS |              | TRANS | TRANS | TRANS |
+// | NUMLOCK| KP 7| KP 8| KP 9 | KP / | KP * |                  |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
+// |   `    | KP 4| KP 5| KP 6 | KP - | KP + |                  | PGUP |  UP   | PGDN  | END  |  DEL  |  F12  |
+// | TRANS  | KP 1| KP 2| KP 3 |KP ENT| KP = |                  | LEFT | DOWN  | RIGHT | HOME |   [   |   ]   |
+// | TRANS  | KP 0| KP ,| KP . |TRANS |TRANS |                  | TRANS| TRANS | TRANS | TRANS | TRANS | TRANS |
+//                      | TRANS| TRANS| TRANS|                  | TRANS| TRANS | TRANS |
             bindings = <
-&kp GRAVE &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6   &kp F7   &kp F8     &kp F9    &kp F10  &kp F11
-&trans    &trans    &trans    &trans    &trans    &trans                       &kp PG_UP &kp UP  &kp PG_DN  &kp END   &kp DEL  &kp F12
-&trans    &trans    &trans    &trans    &trans    &trans                       &kp LEFT &kp DOWN &kp RIGHT  &kp HOME  &kp LBKT &kp RBKT
-&trans    &trans    &trans    &trans    &trans    &trans                       &trans   &trans   &trans     &trans    &trans   &trans
-                              &trans    &trans    &trans                       &trans   &trans   &trans
+&kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DIVIDE &kp KP_MULTIPLY              &kp F6    &kp F7   &kp F8     &kp F9    &kp F10  &kp F11
+&kp GRAVE  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS  &kp KP_PLUS                  &kp PG_UP &kp UP   &kp PG_DN  &kp END   &kp DEL  &kp F12
+&trans     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER  &kp KP_EQUAL                 &kp LEFT  &kp DOWN &kp RIGHT  &kp HOME  &kp LBKT &kp RBKT
+&trans     &kp KP_N0 &kp KP_COMMA &kp KP_DOT &trans    &trans                       &trans    &trans   &trans     &trans    &trans   &trans
+                                &trans     &trans      &trans                       &trans    &trans   &trans
             >;
         };
 
