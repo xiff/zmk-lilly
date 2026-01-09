@@ -1,4 +1,32 @@
-# Configuration ZMK pour Lily58 - QWERTZ Suisse personnalisé 🇨🇭
+# Configuration ZMK pour Silakka54 - QWERTZ Suisse personnalisé 🇨🇭
+
+Shield ZMK pour le clavier split **Silakka54** (54 touches).
+
+Basé sur la configuration QMK officielle du Silakka54 par Squalius-cephalus.
+
+## 📋 Spécifications
+
+- **Touches** : 54 (27 par côté)
+- **Matrice** : 5 rangées × 6 colonnes par côté
+- **Contrôleur compatible** : RP2040 (Seeeduino XIAO RP2040, SuperMini, etc.)
+- **Communication** : Serial UART (GP0/GP1)
+- **Diodes** : COL2ROW
+
+## 🎹 Layout
+
+```
+╭─────┬─────┬─────┬─────┬─────┬─────╮       ╭─────┬─────┬─────┬─────┬─────┬─────╮
+│ ESC │  1  │  2  │  3  │  4  │  5  │       │  6  │  7  │  8  │  9  │  0  │  -  │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ TAB │  Q  │  W  │  E  │  R  │  T  │       │  Z  │  U  │  I  │  O  │  P  │BSPC │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│CTRL │  A  │  S  │  D  │  F  │  G  │       │  H  │  J  │  K  │  L  │  ;  │  '  │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│SHIFT│  Y  │  X  │  C  │  V  │  B  │       │  N  │  M  │  ,  │  .  │  /  │SHIFT│
+└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
+                  │ ALT │SPACE│ Mo1 │       │ RET │ Mo2 │ DEL │
+                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
+```
 
 ## 🎹 Vue d'ensemble
 
@@ -11,34 +39,18 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
 
 ### Layer 0 : BASE (Default)
 
-**Côté gauche :**
 ```
-╭─────┬─────┬─────┬─────┬─────┬─────╮
-│ ESC │  1  │  2  │  3  │  4  │  5  │
-├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  Q  │  W  │  E  │  R  │  T  │
-├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  A  │  S  │  D  │  F  │  G  │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐
-│CTRL │  Z  │  X  │  C  │  V  │  B  │  N  │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤
-                   │ ALT │  .  │SPACE│BKSP │
-                   └─────┴─────┴─────┴─────┘
-```
-
-**Côté droit :**
-```
-       ╭─────┬─────┬─────┬─────┬─────┬─────╮
-       │  6  │  7  │  8  │  9  │  0  │ NUHS│
-       ├─────┼─────┼─────┼─────┼─────┼─────┤
-       │  Y  │  U  │  I  │  O  │  P  │  '  │
-       ├─────┼─────┼─────┼─────┼─────┼─────┤
-       │  H  │  J  │  K  │  L  │  ;  │  [  │
-   ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-   │  M  │  N  │  M  │  ,  │  .  │  /  │ GUI │
-   ├─────┼─────┼─────┴─────┴─────┴─────┴─────┘
-   │ RET │BKSP │
-   └─────┴─────┘
+╭─────┬─────┬─────┬─────┬─────┬─────╮       ╭─────┬─────┬─────┬─────┬─────┬─────╮
+│ ESC │  1  │  2  │  3  │  4  │  5  │       │  6  │  7  │  8  │  9  │  0  │  -  │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ TAB │  Q  │  W  │  E  │  R  │  T  │       │  Y  │  U  │  I  │  O  │  P  │BSPC │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│CTRL │  A  │  S  │  D  │  F  │  G  │       │  H  │  J  │  K  │  L  │  ;  │  '  │
+├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
+│SHIFT│  Z  │  X  │  C  │  V  │  B  │       │  N  │  M  │  ,  │  .  │  /  │SHIFT│
+└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
+                  │ ALT │SPACE│ Mo1 │       │ RET │ Mo2 │ DEL │
+                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
 ```
 
 **Notes importantes :**
@@ -64,9 +76,9 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
 ├────────┼─────┼─────┼─────┼─────┼─────┤
 │  GUI   │     │  0  │  1  │  2  │  3  │
 │        │     │(INS)│(END)│(DN)│(PGDN)│
-└────────┴─────┴─────┼─────┼─────┼─────┼─────┤
-                      │TRANS│TRANS│TRANS│ENTER│
-                      └─────┴─────┴─────┴─────┘
+└────────┴─────┴─────┼─────┼─────┼─────┤
+                     │TRANS│TRANS│ENTER│
+                     └─────┴─────┴─────┘
 ```
 
 **Côté droit : Navigation + Fonctions**
@@ -77,11 +89,11 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
        │ PGUP │ HOME │  UP  │ END  │ END  │ F12  │
        ├──────┼──────┼──────┼──────┼──────┼──────┤
        │ PGDN │ LEFT │ DOWN │RIGHT │ HOME │VOL UP│
-   ┌─────┼──────┼──────┼──────┼──────┼──────┼──────┤
-   │     │  4   │  {   │  }   │ LEFT │RIGHT │VOL DN│
-   ├─────┼──────┼──────┴──────┴──────┴──────┴──────┘
-   │TRANS│TRANS │
-   └─────┴──────┘
+       ├──────┼──────┼──────┼──────┼──────┼──────┤
+       │  4   │  {   │  }   │ LEFT │RIGHT │VOL DN│
+       ├──────┼──────┼──────┼──────┴──────┴──────┘
+       │TRANS │TRANS │ DEL  │
+       └──────┴──────┴──────┘
 ```
 
 **Notes :**
@@ -101,11 +113,11 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
 │        │      │      │      │      │      │
 ├────────┼──────┼──────┼──────┼──────┼──────┤
 │        │      │      │      │      │      │
-├────────┼──────┼──────┼──────┼──────┼──────┼─────┐
-│        │      │      │      │      │      │     │
-└────────┴──────┴──────┼──────┼──────┼──────┼─────┤
-                        │TRANS │TRANS │TRANS │     │
-                        └──────┴──────┴──────┴─────┘
+├────────┼──────┼──────┼──────┼──────┼──────┤
+│        │      │      │      │      │      │
+└────────┴──────┴──────┼──────┼──────┼──────┤
+                       │TRANS │TRANS │TRANS │    
+                       └──────┴──────┴──────┘
 ```
 
 **Côté droit : Multimédia + Symboles**
@@ -116,11 +128,11 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
        │      │      │      │      │      │     │
        ├──────┼──────┼──────┼──────┼──────┼─────┤
        │      │      │  {   │  }   │  '   │     │
-   ┌─────┼──────┼──────┼──────┼──────┼──────┼─────┤
-   │     │      │      │ NUHS │ NUBS │      │     │
-   ├─────┼──────┼──────┴──────┴──────┴──────┴─────┘
-   │     │      │
-   └─────┴──────┘
+       ├──────┼──────┼──────┼──────┼──────┼─────┤
+       │      │      │ NUHS │ NUBS │      │     │
+       ├──────┼──────┴──────┴──────┴──────┴─────┘
+       │TRANS │TRANS │ DEL  │
+       └──────┴──────┴──────┘
 ```
 
 **Légende Bluetooth :**
@@ -136,30 +148,6 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
 **Symboles spéciaux :**
 - **NUHS** : Non-US Hash (§/°)
 - **NUBS** : Non-US Backslash (</>)
-
----
-
-## 🎯 Accès aux layers
-
-### Layer 1 (NUM) - Pavé numérique
-**Comment y accéder :** Actuellement, pas de touche définie dans le keymap.
-
-**💡 Suggestion :** Ajoutez `&mo 1` sur une touche inutilisée ou créez une combo pour activer ce layer.
-
-### Layer 2 (THIRD) - Bluetooth
-**Combo : SPACE + ENTER** (pouces gauche 3 + droit 1)
-- Maintenez **SPACE** (pouce gauche)
-- Appuyez sur **ENTER** (pouce droit)
-- Le layer Bluetooth s'active temporairement
-
----
-
-## 🔓 ZMK Studio (si disponible)
-
-### Déverrouillage
-**Combo : LWR (pos 39) + SPACE (pos 40)**
-
-**⚠️ Note :** ZMK Studio nécessite ZMK 3.6+ et doit être activé dans la config. Si vous voyez une erreur de compilation concernant `studio.h`, ZMK Studio n'est pas disponible dans votre version.
 
 ---
 
@@ -188,40 +176,119 @@ Layout optimisé QWERTZ Suisse avec pavé numérique intégré et contrôles mul
 
 ---
 
-## 🚀 Installation
+## 📂 Structure des fichiers
 
-### 1. Upload des fichiers
-Dans votre repo GitHub **xiff/zmk-lilly** :
 ```
 config/
-├── lily58.keymap    ← Votre configuration
-└── lily58.conf      ← Configuration matérielle
+├── boards/shields/silakka54/
+│   ├── Kconfig.shield              # Configuration du shield
+│   ├── Kconfig.defconfig           # Configuration par défaut
+│   ├── silakka54.dtsi              # Définition commune (matrice)
+│   ├── silakka54_left.overlay      # Overlay côté gauche
+│   └── silakka54_right.overlay     # Overlay côté droit
+├── silakka54.keymap                # Keymap par défaut
+└── silakka54.conf                  # Configuration matérielle
+build.yaml                          # Configuration GitHub Actions
 ```
 
-### 2. Compilation automatique
-- GitHub Actions compile automatiquement à chaque commit
-- Durée : 5-10 minutes
-- Allez dans l'onglet **Actions** pour suivre la progression
+## 🔌 Pin Mapping (basé sur QMK)
 
-### 3. Téléchargement des firmwares
-Une fois la compilation terminée :
-```
-firmware/
-├── lily58_left-nice_nano_v2-zmk.uf2
-└── lily58_right-nice_nano_v2-zmk.uf2
+### Matrice
+
+**Rangées (Rows)** : GP2, GP3, GP4, GP5, GP6  
+**Colonnes (Cols)** : GP7, GP8, GP9, GP10, GP11, GP12
+
+### Communication split
+
+**TX** : GP0  
+**RX** : GP1
+
+### Bootloader
+
+- **LED** : GP17 (pour double-tap reset)
+- **Double-tap** : Activé
+
+## 🚀 Installation
+
+### Option 1 : GitHub Actions (Recommandé)
+
+1. **Forkez** le template : https://github.com/zmkfirmware/unified-zmk-config-template
+2. **Copiez** tout le contenu de `config/` dans votre repo
+3. **Modifiez** `build.yaml` avec le board correct :
+   ```yaml
+   include:
+     - board: seeeduino_xiao_rp2040  # ou votre board
+       shield: silakka54_left
+     - board: seeeduino_xiao_rp2040
+       shield: silakka54_right
+   ```
+4. **Commit & Push** → GitHub Actions compile automatiquement
+5. **Téléchargez** les firmwares dans l'onglet Actions
+
+### Option 2 : Compilation locale
+
+```bash
+# Cloner ZMK
+git clone https://github.com/zmkfirmware/zmk.git
+cd zmk/app
+
+# Compiler pour le côté gauche
+west build -p -b seeeduino_xiao_rp2040 -- \
+  -DSHIELD=silakka54_left \
+  -DZMK_CONFIG="/chemin/vers/config"
+
+# Compiler pour le côté droit
+west build -p -b seeeduino_xiao_rp2040 -- \
+  -DSHIELD=silakka54_right \
+  -DZMK_CONFIG="/chemin/vers/config"
 ```
 
-### 4. Flash des contrôleurs
-Pour chaque côté (gauche puis droit) :
-1. **Double-cliquez** sur le bouton RESET du SuperMini
-2. Le drive **NICENANO** ou **SUPERMINI** apparaît
-3. **Copiez** le fichier .uf2 correspondant
+## 🔧 Flash du firmware
+
+### Avec SuperMini nRF52840
+
+⚠️ **ATTENTION** : Le SuperMini utilise un **nRF52840** (Bluetooth natif), pas un RP2040 !
+
+Si vous avez un **SuperMini nRF52840**, changez le board dans `build.yaml` :
+
+```yaml
+include:
+  - board: nice_nano_v2  # Compatible SuperMini nRF52840
+    shield: silakka54_left
+  - board: nice_nano_v2
+    shield: silakka54_right
+```
+
+### Procédure de flash
+
+1. **Double-cliquez** sur le bouton RESET du contrôleur
+2. Le drive **bootloader** apparaît (RPI-RP2, NICENANO, ou SUPERMINI)
+3. **Copiez** le fichier `.uf2` correspondant
 4. Le drive **disparaît automatiquement** = flash réussi ✅
-5. Le clavier redémarre avec le nouveau firmware
 
-**Erreur Windows 0x800701B1** : C'est normal ! Cela signifie que le flash a réussi.
+### Erreur Windows 0x800701B1
 
----
+C'est **normal** ! Cela signifie que le flash a réussi et le contrôleur a redémarré.
+
+## ⚙️ Personnalisation
+
+### Modifier le keymap
+
+Éditez `config/silakka54.keymap` :
+
+```c
+&kp ESC   &kp N1 &kp N2 ...  // Changez les keycodes
+```
+
+### Ajouter un layer
+
+```c
+my_layer {
+    bindings = <
+        // Votre layout ici
+    >;
+};
+```
 
 ## ⚙️ Configuration système (OS)
 
