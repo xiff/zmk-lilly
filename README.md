@@ -1,100 +1,146 @@
-# Configuration ZMK pour Silakka54 (basée sur Lily58) - QWERTZ Suisse 🇨🇭
+# Configuration ZMK finale pour Silakka54 - QWERTZ Suisse 🇨🇭
 
-## ✅ Ce qui a changé
+## ✅ Configuration personnalisée validée
 
-Votre clavier Silakka54 fonctionne avec les pins du **Lily58**, donc cette configuration utilise :
-- ✅ Le shield **Lily58** (pins compatibles avec votre Silakka54)
-- ✅ Le keymap **QWERTZ Suisse** (adapté pour le layout suisse)
-- ✅ Layout basé sur votre fichier JSON QMK
+Cette configuration a été ajustée manuellement et correspond parfaitement à votre clavier Silakka54 avec SuperMini nRF52840.
 
-## 🎹 Layout configuré
+## 🎹 Layout final - Lily58 (58 touches)
 
 ### Layer 0 (Default) - QWERTZ Suisse
+
+**Côté gauche :**
 ```
-╭─────┬─────┬─────┬─────┬─────┬─────╮       ╭─────┬─────┬─────┬─────┬─────┬─────╮
-│ ESC │  1  │  2  │  3  │  4  │  5  │       │  6  │  7  │  8  │  9  │  0  │  -  │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  Q  │  W  │  E  │  R  │  T  │       │  Y  │  U  │  I  │  O  │  P  │  ü  │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │  A  │  S  │  D  │  F  │  G  │       │  H  │  J  │  K  │  L  │  ö  │  ä  │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │       │  N  │  M  │  ,  │  .  │  /  │SHIFT│
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │ GUI │ LWR │ SPC │       │ ENT │CTRL │BSPC │
-                   └─────┴─────┴─────┘       └─────┴─────┴─────┘
+╭─────┬─────┬─────┬─────┬─────┬─────╮
+│ ESC │  1  │  2  │  3  │  4  │  5  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│ TAB │  Q  │  W  │  E  │  R  │  T  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│SHIFT│  A  │  S  │  D  │  F  │  G  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│CTRL │  Z  │  X  │  C  │  V  │  B  │
+└─────┴─────┴─────┼─────┼─────┼─────┼─────┐
+                   │ LWR │ GUI │RCTRL│  /  │
+                   └─────┴─────┴─────┴─────┘
 ```
 
-**Note QWERTZ :** 
-- Z et Y sont inversés par rapport à QWERTY
-- Les caractères spéciaux suisses (ü, ö, ä) s'obtiennent via le système d'exploitation configuré en Suisse
-- Le layout physique est adapté au QWERTZ
+**Côté droit :**
+```
+       ╭─────┬─────┬─────┬─────┬─────┬─────╮
+       │  6  │  7  │  8  │  9  │  0  │  -  │
+       ├─────┼─────┼─────┼─────┼─────┼─────┤
+       │  Y  │  U  │  I  │  O  │  P  │  ü  │
+       ├─────┼─────┼─────┼─────┼─────┼─────┤
+       │  H  │  J  │  K  │  L  │  ö  │  ä  │
+       ├─────┼─────┼─────┼─────┼─────┼─────┤
+       │  N  │  M  │  ,  │  .  │  /  │LGUI │
+   ┌─────┼─────┼─────┼─────┼─────┴─────┴─────┘
+   │RALT │SPACE│ENTER│RSHFT│
+   └─────┴─────┴─────┴─────┘
+```
 
-### Layer 1 (Lower) - Navigation & Fonctions
-- Rangée 1 : ` F1 F2 F3 F4 F5 | F6 F7 F8 F9 F10 F11
-- Rangée 2 : Navigation (PgUp, Up, PgDn, End, Del, F12)
-- Rangée 3 : Flèches (Left, Down, Right, Home) + Crochets [ ]
+### Layer 1 (Lower) - Pavé numérique + Navigation
 
-### Layer 2 (Bluetooth)
-- BT Clear + BT 1-5 (gestion des profils Bluetooth)
+**Côté gauche : Pavé numérique**
+```
+╭────────┬─────┬─────┬─────┬─────┬─────╮
+│NUMLOCK │  7  │  8  │  9  │  /  │  *  │
+├────────┼─────┼─────┼─────┼─────┼─────┤
+│   `    │  4  │  5  │  6  │  -  │  +  │
+├────────┼─────┼─────┼─────┼─────┼─────┤
+│ TRANS  │  1  │  2  │  3  │ENTER│  =  │
+├────────┼─────┼─────┼─────┼─────┼─────┤
+│ TRANS  │  0  │  ,  │  .  │TRANS│TRANS│
+└────────┴─────┴─────┴─────┴─────┴─────┘
+```
 
-## 🚀 Comment utiliser
+**Côté droit : Navigation**
+```
+      ╭──────┬──────┬──────┬──────┬──────┬─────╮
+      │  F6  │  F7  │  F8  │  F9  │ F10  │ F11 │
+      ├──────┼──────┼──────┼──────┼──────┼─────┤
+      │ PGUP │  UP  │ PGDN │ END  │ DEL  │ F12 │
+      ├──────┼──────┼──────┼──────┼──────┼─────┤
+      │ LEFT │ DOWN │RIGHT │ HOME │  [   │  ]  │
+      ├──────┼──────┼──────┼──────┼──────┼─────┤
+      │TRANS │TRANS │TRANS │TRANS │TRANS │TRANS│
+      └──────┴──────┴──────┴──────┴──────┴─────┘
+```
 
-### Option 1 : Remplacer directement dans votre repo
+### Layer 2 (Bluetooth) - Gestion des profils
 
-1. Allez dans votre repo : https://github.com/xiff/zmk-lilly
-2. Remplacez le contenu de `config/lily58.keymap` par le nouveau fichier
-3. Attendez que GitHub Actions compile (5-10 min)
-4. Téléchargez les nouveaux firmwares
-5. Flashez les deux côtés
+**Rangée du haut gauche :**
+- BT CLR : Effacer tous les appairages
+- BT 1-5 : Sélectionner profils Bluetooth 1 à 5
 
-### Option 2 : Upload manuel
-
-1. Clonez votre repo en local
-2. Remplacez `config/lily58.keymap`
-3. Commit et push
-4. Attendez la compilation
-
-## 📝 Notes importantes
-
-- ✅ Les **pins sont corrects** (vous utilisez déjà le Lily58 qui fonctionne)
-- ✅ Le **keymap correspond** à votre configuration QMK souhaitée
-- ✅ **3 layers** : Default, Lower (navigation), Bluetooth
+Toutes les autres touches sont transparentes (passthrough).
 
 ## 🎯 Accès aux layers
 
-- **Layer 1 (Lower)** : Maintenez la touche du milieu (2ème pouce gauche)
-- **Layer 2 (Bluetooth)** : Actuellement pas de combo définie
-  - Option : Ajoutez une combo (ex: LWR + ESC)
-  - Ou changez temporairement une touche pour accéder au layer 2
+### Layer 1 (Pavé numérique + Navigation)
+**Maintenez LWR** (1er pouce gauche)
+
+### Layer 2 (Bluetooth)
+**Combo : SPACE + ENTER ensemble** (pouces droits 2 et 3)
+
+## 🔓 ZMK Studio
+
+### ⚠️ Actuellement désactivé
+
+ZMK Studio n'est **pas disponible** dans votre version actuelle de ZMK. Cette fonctionnalité sera activable quand vous mettrez à jour vers ZMK 3.6+.
+
+**En attendant** : Modifiez le keymap dans votre repo GitHub, recompilez avec Actions, et flashez normalement.
+
+Consultez `NOTE_ZMK_STUDIO.md` pour plus d'infos sur comment l'activer plus tard.
+
+## 📝 Caractéristiques
+
+- ✅ **Layout QWERTZ Suisse** (Z et Y inversés)
+- ✅ **58 touches** (Lily58 complet avec 4 pouces par côté)
+- ✅ **Pavé numérique** intégré sur Layer 1
+- ✅ **5 profils Bluetooth** disponibles
+- ✅ **SuperMini nRF52840** compatible Nice!Nano v2
+- ⏳ **ZMK Studio** (désactivé, disponible avec ZMK 3.6+)
+
+## 🚀 Installation
+
+1. **Uploadez** `config/lily58.keymap` et `config/lily58.conf` dans votre repo GitHub
+2. **GitHub Actions** compile automatiquement (5-10 min)
+3. **Téléchargez** les firmwares :
+   - `lily58_left-nice_nano_v2-zmk.uf2`
+   - `lily58_right-nice_nano_v2-zmk.uf2`
+4. **Flashez** les deux côtés en mode bootloader (double-clic RESET)
+
+## ⚙️ Configuration système
+
+Pour que les caractères spéciaux suisses (ü, ö, ä) s'affichent correctement :
+- Configurez votre système d'exploitation en **Suisse (Français)** ou **Suisse (Allemand)**
+- Layout clavier : **Swiss QWERTZ**
 
 ## 🔧 Personnalisation
 
-Pour modifier le layout, éditez `config/lily58.keymap` :
-- Changez les keycodes ZMK
-- Ajoutez des combos
-- Modifiez les layers
+Pour modifier le keymap :
+1. Éditez `config/lily58.keymap` dans votre repo
+2. Ou utilisez ZMK Studio en temps réel (modifications temporaires)
+3. Recompilez avec GitHub Actions
 
-### Ajouter une combo pour le layer Bluetooth
+### Keycodes utiles
+- Documentation complète : https://zmk.dev/docs/codes
+- Behaviors ZMK : https://zmk.dev/docs/behaviors
 
-Ajoutez ceci dans le keymap (après les behaviors) :
+## 📚 Ressources
 
-```c
-combos {
-    compatible = "zmk,combos";
-    combo_bt {
-        timeout-ms = <50>;
-        key-positions = <38 39>; // LWR + SPC
-        bindings = <&mo 2>;
-    };
-};
-```
+- **Votre repo GitHub** : https://github.com/xiff/zmk-lilly
+- **ZMK Studio** : https://zmk.studio
+- **Documentation ZMK** : https://zmk.dev/docs
+- **Support ZMK** : https://zmk.dev/community/discord/invite
 
-## 📖 Ressources
+## 💡 Conseils
 
-- [Documentation ZMK](https://zmk.dev/docs)
-- [Keycodes ZMK](https://zmk.dev/docs/codes)
-- [Votre repo actuel](https://github.com/xiff/zmk-lilly)
+- **Bluetooth** : Vous pouvez connecter le clavier à 5 appareils différents
+- **Économie d'énergie** : Le clavier se met en veille après 15 minutes
+- **Batterie** : Les switches ON/OFF permettent de couper complètement l'alimentation
+- **ZMK Studio** : Idéal pour tester des modifications sans recompiler
 
 ---
 
-**Bonne continuation ! 🎮⌨️**
+**Profitez de votre Silakka54 ! ⌨️🎮🇨🇭**
