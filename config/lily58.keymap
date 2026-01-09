@@ -11,12 +11,26 @@
 / {
     combos {
         compatible = "zmk,combos";
-        
-        // Combo pour acceder au layer Bluetooth
+
+        // Combo pour accéder au layer Bluetooth
         combo_bt_layer {
             timeout-ms = <50>;
             key-positions = <40 41>; // SPACE + ENTER ensemble
             bindings = <&mo 2>;
+        };
+
+        // Combo pour accéder au layer média
+        combo_media_layer {
+            timeout-ms = <50>;
+            key-positions = <39 41>; // LWR (gauche) + ENTER
+            bindings = <&mo 3>;
+        };
+
+        // Combo pour déverrouiller ZMK Studio (si utilisé)
+        combo_studio_unlock {
+            timeout-ms = <50>;
+            key-positions = <39 40>; // LWR (gauche) + SPACE
+            bindings = <&studio_unlock>;
         };
     };
 
@@ -24,50 +38,62 @@
         compatible = "zmk,keymap";
 
         default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   -   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   u   |
-// | SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   o   |   a   |
-// | CTRL  |  Z  |  X  |  C   |  V   |  B   |                   |  N   |  M    | ,     | .    | /     | LGUI  |
-//                     | LWR  | GUI  | RCTRL| FSLH |       | RALT | SPACE| RET   | RSHFT |
             bindings = <
-&kp ESC   &kp N1 &kp N2    &kp N3    &kp N4   &kp N5                     &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
-&kp TAB   &kp Q  &kp W     &kp E     &kp R    &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT
-&kp LSHFT &kp A  &kp S     &kp D     &kp F    &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-&kp LCTRL &kp Z  &kp X     &kp C     &kp V    &kp B                      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp LGUI
-                           &mo 1     &kp LGUI &kp RCTRL &kp FSLH         &kp RALT  &kp SPACE &kp RET   &kp RSHFT
+                // Ligne 1
+                &kp ESC   &kp N1 &kp N2    &kp N3    &kp N4   &kp N5                     &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
+                // Ligne 2
+                &kp TAB   &kp Q  &kp W     &kp E     &kp R    &kp T                      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT
+                // Ligne 3
+                &kp LSHFT &kp A  &kp S     &kp D     &kp F    &kp G                      &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+                // Ligne 4
+                &kp LCTRL &kp Z  &kp X     &kp C     &kp V    &kp B                      &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH &kp LGUI
+                // Pouces
+                                &mo 1     &kp LGUI &kp RCTRL &kp FSLH         &kp RALT  &kp SPACE &kp RET   &kp RSHFT
             >;
         };
 
         lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | NUMLOCK| KP 7| KP 8| KP 9 | KP / | KP * |                  |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-// |   `    | KP 4| KP 5| KP 6 | KP - | KP + |                  | PGUP |  UP   | PGDN  | END  |  DEL  |  F12  |
-// | TRANS  | KP 1| KP 2| KP 3 |KP ENT| KP = |                  | LEFT | DOWN  | RIGHT | HOME |   [   |   ]   |
-// | TRANS  | KP 0| KP ,| KP . |TRANS |TRANS |                  | TRANS| TRANS | TRANS | TRANS | TRANS | TRANS |
-//                      | TRANS| TRANS| TRANS| TRANS|                  | TRANS| TRANS | TRANS | TRANS|
             bindings = <
-&kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DIVIDE &kp KP_MULTIPLY              &kp F6    &kp F7   &kp F8     &kp F9    &kp F10  &kp F11
-&kp GRAVE  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS  &kp KP_PLUS                  &kp PG_UP &kp UP   &kp PG_DN  &kp END   &kp DEL  &kp F12
-&trans     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER  &kp KP_EQUAL                 &kp LEFT  &kp DOWN &kp RIGHT  &kp HOME  &kp LBKT &kp RBKT
-&trans     &kp KP_N0 &kp KP_COMMA &kp KP_DOT &trans    &trans                       &trans    &trans   &trans     &trans    &trans   &trans
+                // Ligne 1
+                &kp KP_NUM &kp F1 &kp F2 &kp F3 &kp F4 &kp F5              &kp F6    &kp F7   &kp F8     &kp F9    &kp F10  &kp F11
+                // Ligne 2
+                &kp GRAVE  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS  &kp KP_PLUS                  &kp PG_UP &kp UP   &kp PG_DN  &kp END   &kp DEL  &kp F12
+                // Ligne 3
+                &kp KP_DIVIDE     &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_ENTER  &kp KP_EQUAL                 &kp LEFT  &kp DOWN &kp RIGHT  &kp HOME  &kp LBKT &kp RBKT
+                // Ligne 4
+                &kp KP_N0     &kp KP_N1 &kp KP_N2 &kp KP_N3 &trans    &trans                       &trans    &trans   &trans     &trans    &trans   &trans
+                // Pouces
                                 &trans     &trans      &trans    &trans             &trans    &trans   &trans     &trans
             >;
         };
 
         bluetooth_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
-// | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |            | TRANS | TRANS | TRANS | TRANS | TRANS | TRANS |
-//                        | TRANS | TRANS | TRANS | TRANS |          | TRANS | TRANS | TRANS | TRANS |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans &trans &trans &trans &trans &trans
-&trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
-&trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
-&trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
-                                     &trans       &trans       &trans  &trans           &trans &trans &trans &trans
+                // Ligne 1
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans &trans &trans &trans &trans &trans
+                // Ligne 2
+                &trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
+                // Ligne 3
+                &trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
+                // Ligne 4
+                &trans     &trans       &trans       &trans       &trans       &trans                   &trans &trans &trans &trans &trans &trans
+                // Pouces
+                                &trans       &trans       &trans  &trans           &trans &trans &trans &trans
+            >;
+        };
+
+        media_layer {
+            bindings = <
+                // Ligne 1
+                &kp MUTE &kp VOLD &kp VOLU &trans &trans &trans             &trans &trans &trans &trans &trans &trans
+                // Ligne 2
+                &trans   &trans   &trans   &trans &trans &trans             &trans &trans &trans &trans &trans &trans
+                // Ligne 3
+                &trans   &trans   &trans   &trans &trans &trans             &trans &trans &trans &trans &trans &trans
+                // Ligne 4
+                &trans   &trans   &trans   &trans &trans &trans             &trans &trans &trans &trans &trans &trans
+                // Pouces
+                                &trans   &trans   &trans   &trans             &trans &trans &trans &trans
             >;
         };
     };
